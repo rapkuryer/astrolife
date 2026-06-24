@@ -61,8 +61,8 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0a0a0c;
-  text-shadow: none;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -162,7 +162,7 @@
   font-size: 22px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #0a0a0c;
+  color: rgba(255, 255, 255, 0.95);
   text-shadow: none;
 }
 
