@@ -43,13 +43,13 @@
   fill: currentColor;
 }
 
-/* shifted left from the right edge */
+/* buttons — bottom right */
 #al-btn-info {
-  right: max(88px, calc(env(safe-area-inset-right) + 68px));
+  right: max(16px, env(safe-area-inset-right));
 }
 
 #al-btn-twitter {
-  right: max(148px, calc(env(safe-area-inset-right) + 128px));
+  right: max(72px, calc(env(safe-area-inset-right) + 56px));
 }
 
 #al-ticker {
@@ -86,7 +86,7 @@
 
 #al-info-panel {
   position: fixed;
-  right: max(88px, calc(env(safe-area-inset-right) + 68px));
+  right: max(16px, env(safe-area-inset-right));
   bottom: calc(max(20px, env(safe-area-inset-bottom)) + 60px);
   width: min(420px, calc(100vw - 48px));
   max-height: min(72vh, 560px);
