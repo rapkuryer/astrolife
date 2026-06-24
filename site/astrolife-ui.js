@@ -71,20 +71,49 @@
     if (e.key === 'Escape') closeInfo();
   });
 
-  // Show hint if 3D canvas never appears
+  // Loading hint — only if game stalls (assets are ~60 MB)
   const boot = document.createElement('div');
   boot.id = 'al-boot-hint';
-  boot.textContent = 'Loading world…';
+  boot.hidden = true;
   document.body.appendChild(boot);
 
+  function gameStatus() {
+    const text = document.body.innerText;
+    return {
+      hasCanvas: !!document.querySelector('canvas'),
+      hasIntro: /ASTROLIFE|CALIBRATING|LOADING|START/i.test(text),
+      hasProgress: /\d+%/.test(text),
+    };
+  }
+
   window.setTimeout(() => {
-    const hasCanvas = document.querySelector('canvas');
-    const hasStart = document.body.innerText.includes('START');
-    if (!hasCanvas && !hasStart) {
-      boot.textContent = 'Use Chrome or Edge with WebGPU enabled, then refresh.';
-      boot.classList.add('error');
-    } else if (hasStart || hasCanvas) {
-      boot.remove();
+    const s = gameStatus();
+    if (!s.hasCanvas && !s.hasIntro) {
+      boot.hidden = false;
+      boot.textContent = 'Loading world…';
     }
-  }, 18000);
+  }, 12000);
+
+  window.setTimeout(() => {
+    const s = gameStatus();
+    if (s.hasCanvas || s.hasIntro) {
+      boot.remove();
+      return;
+    }
+    boot.hidden = false;
+    boot.textContent = 'Still loading assets…';
+    boot.classList.remove('error');
+  }, 35000);
+
+  window.setTimeout(() => {
+    const s = gameStatus();
+    if (s.hasCanvas || s.hasIntro) {
+      boot.remove();
+      return;
+    }
+    boot.hidden = false;
+    boot.classList.add('error');
+    boot.innerHTML =
+      'Game needs WebGPU.<br>Use <strong>Chrome</strong> or <strong>Edge</strong> (latest), then refresh.';
+  }, 70000);
 })();
