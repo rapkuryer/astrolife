@@ -17,6 +17,9 @@
   bottom: max(20px, env(safe-area-inset-bottom));
   width: 48px;
   height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   background: rgba(8, 8, 10, 0.72);
@@ -29,6 +32,14 @@
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   text-decoration: none;
   padding: 0;
+  margin: 0;
+  line-height: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+button.al-btn {
+  font: inherit;
 }
 
 .al-btn:hover {
@@ -38,13 +49,14 @@
 }
 
 .al-btn svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
   display: block;
+  flex-shrink: 0;
 }
 
-/* buttons — bottom right: github · twitter · info */
+/* buttons — bottom right: dex · github · twitter · info */
 #al-btn-info {
   right: max(16px, env(safe-area-inset-right));
 }
@@ -55,6 +67,15 @@
 
 #al-btn-github {
   right: max(128px, calc(env(safe-area-inset-right) + 112px));
+}
+
+#al-btn-dex {
+  right: max(184px, calc(env(safe-area-inset-right) + 168px));
+  color: #55d292;
+}
+
+#al-btn-dex:hover {
+  color: #6ee7a8;
 }
 
 #al-ticker {
