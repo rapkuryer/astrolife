@@ -70,4 +70,21 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeInfo();
   });
+
+  // Show hint if 3D canvas never appears
+  const boot = document.createElement('div');
+  boot.id = 'al-boot-hint';
+  boot.textContent = 'Loading world…';
+  document.body.appendChild(boot);
+
+  window.setTimeout(() => {
+    const hasCanvas = document.querySelector('canvas');
+    const hasStart = document.body.innerText.includes('START');
+    if (!hasCanvas && !hasStart) {
+      boot.textContent = 'Use Chrome or Edge with WebGPU enabled, then refresh.';
+      boot.classList.add('error');
+    } else if (hasStart || hasCanvas) {
+      boot.remove();
+    }
+  }, 18000);
 })();
