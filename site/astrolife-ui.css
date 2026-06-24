@@ -38,18 +38,23 @@
 }
 
 .al-btn svg {
-  width: 21px;
-  height: 21px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
+  display: block;
 }
 
-/* buttons — bottom right */
+/* buttons — bottom right: github · twitter · info */
 #al-btn-info {
   right: max(16px, env(safe-area-inset-right));
 }
 
 #al-btn-twitter {
   right: max(72px, calc(env(safe-area-inset-right) + 56px));
+}
+
+#al-btn-github {
+  right: max(128px, calc(env(safe-area-inset-right) + 112px));
 }
 
 #al-ticker {
@@ -181,12 +186,29 @@
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-#al-info-twitter:hover {
+#al-info-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: #ececee;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+#al-info-twitter:hover,
+#al-info-github:hover {
   background: rgba(0, 0, 0, 0.5);
   border-color: rgba(255, 255, 255, 0.22);
 }
 
-#al-info-twitter svg {
+#al-info-twitter svg,
+#al-info-github svg {
   width: 16px;
   height: 16px;
   fill: currentColor;

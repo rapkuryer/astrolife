@@ -1,85 +1,75 @@
 # AstroLife
 
-> Endless grass. Astronaut footsteps. Stars above.  
-> Recovered from [false-earth.mingjyunhung.com](https://false-earth.mingjyunhung.com/) with **GAMETA**.
-
-**Twitter:** [@astrolifegame](https://x.com/astrolifegame)  
-**Token:** `$ASTROLIFE` — soon
+**Play:** [astrolife.fun](https://www.astrolife.fun) · **X:** [@astrolifegame](https://x.com/astrolifegame) · **Token:** `$ASTROLIFE` soon
 
 ---
 
-## Quick start
+## What is AstroLife?
 
-```bash
-cd ~/Desktop/AstroLife
-npm start
-```
+AstroLife is an interactive 3D browser experience. You walk an endless grass field under the stars as an astronaut — every step reshapes the ground beneath you. The horizon never arrives.
 
-Open **http://localhost:3456**
+Built on grass. Built with Three.js. Built for the drift.
 
 ---
 
-## Project layout
+## How to play
 
-| Path | Purpose |
-|------|---------|
-| `site/` | Live site — deploy this folder |
-| `site/assets/` | Game engine bundle (React + Three.js / WebGPU) |
-| `site/models/` | Astronaut GLB + walk / run / idle animations |
-| `site/textures/` | KTX2, HDR sky, starmap |
-| `site/audio/` | Grass footsteps + ambience |
-| `site/vat/` | Rose vertex-animation assets |
-| `site/astrolife-ui.*` | Buttons, info panel, ticker |
-| `site/astrolife-optimize.js` | Performance caps (DPR, tab pause) |
-| `_source/` | Full GAMETA harvest archive (backup) |
+1. Open **[astrolife.fun](https://www.astrolife.fun)** in **Chrome** or **Edge** (WebGPU required)
+2. Wait for assets to load (~30–60 sec on first visit)
+3. Press **[ START ]**
+4. Explore the infinite field
 
----
+### Controls
 
-## Edit guide
-
-### UI & branding
-**`site/astrolife-ui.js`** — text, Twitter link, info content  
-**`site/astrolife-ui.css`** — fonts, transparency, button positions
-
-### In-game intro
-**`site/assets/index-BFLB12Kf.js`** — minified; search for `ASTROLIFE` to change start screen copy
-
-### Performance
-**`site/astrolife-optimize.js`** — `MAX_DPR` caps render resolution (default `1.5`)  
-Bundle also runs with `antialias: false` and `powerPreference: high-performance`
+| Key | Action |
+|-----|--------|
+| `W` `A` `S` `D` | Move |
+| `Shift` | Run |
+| `C` | Switch camera |
+| Mouse | Look around |
+| `M` | Toggle sound |
 
 ---
 
-## Deploy (Vercel)
+## Features
 
-Repo: [github.com/rapkuryer/astrolife](https://github.com/rapkuryer/astrolife)  
-Domain: **astrolife.pump**
-
-```bash
-# from repo root — Vercel reads vercel.json (outputDirectory: site)
-vercel --prod
-
-# add custom domain (once per project)
-vercel domains add astrolife.pump
-```
-
-Or connect the GitHub repo in [Vercel Dashboard](https://vercel.com) — zero build step, static output from `site/`.
+- Infinite procedural grass terrain
+- Real-time footprint deformation
+- Astronaut animations — idle, walk, run
+- Starfield + HDR sky lighting
+- Ambient grass audio
+- Rose vertex-animation effects
 
 ---
 
-## What's inside
+## Tech stack
 
-- 5 character animation models
-- Astronaut KTX2 texture set (body + details)
-- 4K starmap + HDR environment
-- 8 audio files (footsteps + field loop)
-- Rose VAT effects
-- ~2.5 MB game bundle
+- **React** + **Three.js** (WebGPU)
+- GLTF character models
+- KTX2 textures, HDR environment maps
+- Procedural terrain with live deformation
+- VAT (vertex animation textures) for roses
 
 ---
 
-## Links
+## $ASTROLIFE
 
-- Game: run locally or host `site/`
-- X: https://x.com/astrolifegame
-- Original (archived): https://false-earth.mingjyunhung.com/
+Community token — **launching soon**.
+
+Follow updates on [@astrolifegame](https://x.com/astrolifegame).
+
+---
+
+## About this repo
+
+This repository contains the **AstroLife** game site and documentation.
+
+The experience was recovered and rebuilt as an open community project after the original site became inaccessible.
+
+**Original inspiration:** [false-earth.mingjyunhung.com](https://false-earth.mingjyunhung.com/)
+
+---
+
+## License
+
+Game assets and code — community project. Not affiliated with the original False Earth creators unless stated otherwise.
