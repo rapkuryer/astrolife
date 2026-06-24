@@ -7,3 +7,4 @@ node_modules/
 
 # GAMETA archive — local backup only, not needed for deploy
 _source/
+.vercel
