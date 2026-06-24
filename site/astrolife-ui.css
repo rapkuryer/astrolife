@@ -1,0 +1,219 @@
+/* AstroLife overlay */
+#astrolife-ui {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  font-family: Cousine, "SF Mono", Menlo, monospace;
+}
+
+#astrolife-ui a,
+#astrolife-ui button {
+  pointer-events: auto;
+}
+
+.al-btn {
+  position: fixed;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(8, 8, 10, 0.72);
+  color: #ececee;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+  padding: 0;
+}
+
+.al-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(14, 14, 18, 0.85);
+}
+
+.al-btn svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+}
+
+/* shifted left from the right edge */
+#al-btn-info {
+  right: max(88px, calc(env(safe-area-inset-right) + 68px));
+}
+
+#al-btn-twitter {
+  right: max(148px, calc(env(safe-area-inset-right) + 128px));
+}
+
+#al-ticker {
+  position: fixed;
+  left: max(20px, env(safe-area-inset-left));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  pointer-events: none;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0a0a0c;
+  text-shadow: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+#al-info-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+  pointer-events: none;
+  z-index: 10001;
+}
+
+#al-info-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#al-info-panel {
+  position: fixed;
+  right: max(88px, calc(env(safe-area-inset-right) + 68px));
+  bottom: calc(max(20px, env(safe-area-inset-bottom)) + 60px);
+  width: min(420px, calc(100vw - 48px));
+  max-height: min(72vh, 560px);
+  overflow: auto;
+  padding: 26px 26px 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 8, 10, 0.55);
+  color: #e4e4e8;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform: translateY(12px) scale(0.98);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  pointer-events: none;
+  z-index: 10002;
+}
+
+#al-info-panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+#al-info-panel h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  letter-spacing: 0.32em;
+  color: #fff;
+  font-weight: 700;
+}
+
+#al-info-panel .tag {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: #8fdf9a;
+  text-transform: uppercase;
+}
+
+#al-info-panel p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #d0d0d6;
+}
+
+#al-info-panel ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #c4c4ca;
+}
+
+#al-info-panel .section-title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f0f0f2;
+  font-weight: 600;
+}
+
+#al-info-panel .token-line {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #0a0a0c;
+  text-shadow: none;
+}
+
+#al-info-twitter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: #ececee;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+#al-info-twitter:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+#al-info-twitter svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+#al-info-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #bbb;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#al-info-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+div[style*='zIndex:9999'][style*='background:"#000"'],
+div[style*="zIndex:9999"][style*='background:#000'] {
+  background: transparent !important;
+}

@@ -1,0 +1,10 @@
+{
+  "name": "astrolife",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AstroLife — recovered False Earth WebGPU experience",
+  "scripts": {
+    "start": "npx --yes serve site -l 3456",
+    "dev": "npx --yes serve site -l 3456"
+  }
+}

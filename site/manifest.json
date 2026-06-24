@@ -1,0 +1,398 @@
+[
+  {
+    "url": "https://false-earth.mingjyunhung.com/",
+    "status": 200,
+    "kind": "html",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 1423,
+    "saved": "index.html",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/assets/index-DaCgqp8q.css",
+    "status": 200,
+    "kind": "style",
+    "contentType": "text/css; charset=utf-8",
+    "bytes": 396,
+    "saved": "assets/index-DaCgqp8q.css",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/assets/index-BFLB12Kf.js",
+    "status": 200,
+    "kind": "script",
+    "contentType": "application/javascript",
+    "bytes": 2602219,
+    "saved": "assets/index-BFLB12Kf.js",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/fs_grass3.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 13918,
+    "saved": "audio/fs_grass3.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/fs_grass2.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 13918,
+    "saved": "audio/fs_grass2.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/fs_grass1.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 10157,
+    "saved": "audio/fs_grass1.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/fs_grass4.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 15172,
+    "saved": "audio/fs_grass4.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/fs_grass5.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 18307,
+    "saved": "audio/fs_grass5.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/RoseLowPoly_meta.json",
+    "status": 200,
+    "kind": "data",
+    "contentType": "application/json",
+    "bytes": 237,
+    "saved": "vat/RoseLowPoly_meta.json",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/Rose_meta.json",
+    "status": 200,
+    "kind": "data",
+    "contentType": "application/json",
+    "bytes": 216,
+    "saved": "vat/Rose_meta.json",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/favicon.png",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/png",
+    "bytes": 2143,
+    "saved": "textures/favicon.png",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/cdn-cgi/challenge-platform/h/b/scripts/jsd/25e6c66701a0/main.js?",
+    "status": 200,
+    "kind": "script",
+    "contentType": "application/javascript; charset=UTF-8",
+    "bytes": 20869,
+    "saved": "cdn-cgi/challenge-platform/h/b/scripts/jsd/25e6c66701a0/main.js",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/models/Idle.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 117568,
+    "saved": "models/Idle.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/models/Running.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 89856,
+    "saved": "models/Running.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/models/WalkingBack.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 79412,
+    "saved": "models/WalkingBack.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/models/Walking.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 98684,
+    "saved": "models/Walking.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/wave01.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 306782,
+    "saved": "audio/wave01.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/RoseLowPoly.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 94628,
+    "saved": "vat/RoseLowPoly.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/fonts/Cousine-Regular.ttf",
+    "status": 200,
+    "kind": "font",
+    "contentType": "font/ttf",
+    "bytes": 300208,
+    "saved": "fonts/Cousine-Regular.ttf",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/RoseLowPoly_nrm.png",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/png",
+    "bytes": 251834,
+    "saved": "vat/RoseLowPoly_nrm.png",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/Rose.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 242108,
+    "saved": "vat/Rose.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/models/Astronaut.glb",
+    "status": 200,
+    "kind": "model",
+    "contentType": "model/gltf-binary",
+    "bytes": 537472,
+    "saved": "models/Astronaut.glb",
+    "source": "harvest"
+  },
+  {
+    "url": "https://www.gstatic.com/draco/versioned/decoders/1.5.5/draco_wasm_wrapper.js",
+    "status": 200,
+    "kind": "script",
+    "contentType": "text/javascript",
+    "bytes": 58916,
+    "saved": "_external/www.gstatic.com/draco/versioned/decoders/1.5.5/draco_wasm_wrapper.js",
+    "source": "harvest"
+  },
+  {
+    "url": "https://www.gstatic.com/draco/versioned/decoders/1.5.5/draco_decoder.wasm",
+    "status": 200,
+    "kind": "wasm",
+    "contentType": "application/wasm",
+    "bytes": 283091,
+    "saved": "_external/www.gstatic.com/draco/versioned/decoders/1.5.5/draco_decoder.wasm",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/noise.m4a",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mp4",
+    "bytes": 497722,
+    "saved": "audio/noise.m4a",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/Rose_nrm.png",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/png",
+    "bytes": 665427,
+    "saved": "vat/Rose_nrm.png",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/audio/grass_field.mp3",
+    "status": 200,
+    "kind": "media",
+    "contentType": "audio/mpeg",
+    "bytes": 1002601,
+    "saved": "audio/grass_field.mp3",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/potsdamer_platz_1k_nb.hdr",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "application/octet-stream",
+    "bytes": 1552820,
+    "saved": "textures/potsdamer_platz_1k_nb.hdr",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Rose/Rose_Outline.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 1926986,
+    "saved": "textures/Rose/Rose_Outline.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Body/Astronaut_Suit_Body_Metallic.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 1804680,
+    "saved": "textures/Body/Astronaut_Suit_Body_Metallic.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Body/Astronaut_Suit_Body_Ao.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 1882001,
+    "saved": "textures/Body/Astronaut_Suit_Body_Ao.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Details/Astronaut_Suit_Details_Metallic.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 1817255,
+    "saved": "textures/Details/Astronaut_Suit_Details_Metallic.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Details/Astronaut_Suit_Details_Albedo.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 2015648,
+    "saved": "textures/Details/Astronaut_Suit_Details_Albedo.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/basis/basis_transcoder.js",
+    "status": 200,
+    "kind": "script",
+    "contentType": "application/javascript; charset=utf-8",
+    "bytes": 88360,
+    "saved": "_external/cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/basis/basis_transcoder.js",
+    "source": "harvest"
+  },
+  {
+    "url": "https://cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/basis/basis_transcoder.wasm",
+    "status": 200,
+    "kind": "wasm",
+    "contentType": "application/wasm",
+    "bytes": 499935,
+    "saved": "_external/cdn.jsdelivr.net/gh/pmndrs/drei-assets@master/basis/basis_transcoder.wasm",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Details/Astronaut_Suit_Details_Ao.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 2340220,
+    "saved": "textures/Details/Astronaut_Suit_Details_Ao.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Body/Astronaut_Suit_Body_Albedo.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 2490274,
+    "saved": "textures/Body/Astronaut_Suit_Body_Albedo.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/RoseLowPoly_pos.exr",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/aces",
+    "bytes": 3056123,
+    "saved": "vat/RoseLowPoly_pos.exr",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Details/Astronaut_Suit_Details_Normals.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 3948761,
+    "saved": "textures/Details/Astronaut_Suit_Details_Normals.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Body/Astronaut_Suit_Body_Normals.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 4757860,
+    "saved": "textures/Body/Astronaut_Suit_Body_Normals.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Rose/Rose_Petal_Normal.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 5632862,
+    "saved": "textures/Rose/Rose_Petal_Normal.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/Rose/Rose_Petal_Diff.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 5999883,
+    "saved": "textures/Rose/Rose_Petal_Diff.ktx2",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/vat/Rose_pos.exr",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/aces",
+    "bytes": 7740987,
+    "saved": "vat/Rose_pos.exr",
+    "source": "harvest"
+  },
+  {
+    "url": "https://false-earth.mingjyunhung.com/textures/starmap_2020_4k.ktx2",
+    "status": 200,
+    "kind": "texture",
+    "contentType": "image/ktx2",
+    "bytes": 8965102,
+    "saved": "textures/starmap_2020_4k.ktx2",
+    "source": "harvest"
+  }
+]
