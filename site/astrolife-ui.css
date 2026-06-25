@@ -1,9 +1,7 @@
-/* AstroLife overlay */
+/* AstroLife overlay — no full-screen layer (Chrome WebGPU compositor) */
 #astrolife-ui {
-  position: fixed;
-  inset: 0;
+  position: static;
   pointer-events: none;
-  z-index: 10000;
   font-family: Cousine, "SF Mono", Menlo, monospace;
 }
 
@@ -15,6 +13,7 @@
 .al-btn {
   position: fixed;
   bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 10000;
   width: 48px;
   height: 48px;
   min-width: 48px;
@@ -71,17 +70,21 @@ button.al-btn {
 
 #al-btn-dex {
   right: max(184px, calc(env(safe-area-inset-right) + 168px));
-  color: #55d292;
 }
 
-#al-btn-dex:hover {
-  color: #6ee7a8;
+.al-dex-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 #al-ticker {
   position: fixed;
   left: max(20px, env(safe-area-inset-left));
   bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 10000;
   pointer-events: none;
   font-size: 20px;
   font-weight: 800;
@@ -95,8 +98,8 @@ button.al-btn {
 #al-info-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(2px);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, visibility 0.25s;
@@ -112,32 +115,47 @@ button.al-btn {
 
 #al-info-panel {
   position: fixed;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: calc(max(20px, env(safe-area-inset-bottom)) + 60px);
-  width: min(420px, calc(100vw - 48px));
-  max-height: min(72vh, 560px);
-  overflow: auto;
-  padding: 26px 26px 22px;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: min(440px, calc(100vw - 40px));
+  max-height: min(88vh, 640px);
+  overflow: hidden;
+  padding: 24px 24px 20px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(8, 8, 10, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 10, 0.22);
   color: #e4e4e8;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  transform: translateY(12px) scale(0.98);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translate(-50%, calc(-50% + 12px)) scale(0.98);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   pointer-events: none;
   z-index: 10002;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#al-info-panel::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 #al-info-panel.open {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0) scale(1);
+  transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
+}
+
+html.al-info-open,
+html.al-info-open body {
+  overflow: hidden !important;
 }
 
 #al-info-panel h2 {
@@ -158,18 +176,18 @@ button.al-btn {
 }
 
 #al-info-panel p {
-  margin: 0 0 14px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #d0d0d6;
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(224, 224, 232, 0.92);
 }
 
 #al-info-panel ul {
-  margin: 0 0 16px;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.65;
-  color: #c4c4ca;
+  margin: 0 0 12px;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(196, 196, 202, 0.9);
 }
 
 #al-info-panel .section-title {
@@ -190,6 +208,44 @@ button.al-btn {
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: none;
+}
+
+#al-info-panel .contract-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: #ececee;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+#al-info-panel .contract-line:hover,
+#al-info-panel .contract-line.copied {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(143, 223, 154, 0.45);
+}
+
+#al-info-panel .contract-label {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #8fdf9a;
+}
+
+#al-info-panel .contract-addr {
+  word-break: break-all;
+  color: rgba(236, 236, 238, 0.95);
 }
 
 #al-info-twitter {
@@ -257,8 +313,24 @@ button.al-btn {
 }
 
 div[style*='zIndex:9999'][style*='background:"#000"'],
-div[style*="zIndex:9999"][style*='background:#000'] {
-  background: transparent !important;
+div[style*="zIndex:9999"][style*='background:#000'],
+div[style*='zIndex:9999'][style*='rgba(0,0,0'] {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+html.al-chrome .al-btn,
+html.al-chrome #al-info-panel,
+html.al-chrome #al-info-backdrop {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.al-chrome .al-btn {
+  background: rgba(8, 8, 10, 0.92);
+}
+
+html.al-chrome #al-info-panel {
+  background: rgba(8, 8, 10, 0.3);
 }
 
 #al-boot-hint {

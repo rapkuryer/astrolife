@@ -2,15 +2,16 @@
   const TWITTER_URL = 'https://x.com/astrolifegame';
   const TWITTER_HANDLE = '@astrolifegame';
   const GITHUB_URL = 'https://github.com/rapkuryer/astrolife';
-  const DEXSCREENER_URL = '#'; // link coming soon
+  const TOKEN_CONTRACT = '2ap3XHWhLAFVa1DiG9styAA9TXcQPmAKA4L6kiK6dory';
+  const DEXSCREENER_URL = `https://dexscreener.com/solana/${TOKEN_CONTRACT}`;
 
   const ui = document.createElement('div');
   ui.id = 'astrolife-ui';
   ui.innerHTML = `
-    <div id="al-ticker">$ASTROLIFE soon</div>
+    <div id="al-ticker">$ASTROLIFE</div>
 
-    <a id="al-btn-dex" class="al-btn" href="${DEXSCREENER_URL}" aria-label="Dexscreener" title="Dexscreener — coming soon">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 4.7C17.2 2.6 14.3 1.5 11.2 1.5 6 1.5 1.7 5.8 1.7 11c0 2.4.9 4.6 2.5 6.3l-1.4 4.5 4.7-1.5c1.5.8 3.2 1.2 4.9 1.2 5.2 0 9.5-4.3 9.5-9.5 0-3.1-1.2-6-3.6-8.3zm-8.1 2.8c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6-1.6-.7-1.6-1.6.7-1.6 1.6-1.6zm5.8 0c.9 0 1.6.7 1.6 1.6s-.7 1.6-1.6 1.6-1.6-.7-1.6-1.6.7-1.6 1.6-1.6zm-1.2 7.8c-1.3.9-2.9 1.4-4.5 1.4-1.2 0-2.3-.3-3.3-.8 2.5-.3 4.7-1.4 6.4-3 1.1 1 2.5 1.7 4 2.1-.8.2-1.7.3-2.6.3z"/></svg>
+    <a id="al-btn-dex" class="al-btn" href="${DEXSCREENER_URL}" target="_blank" rel="noopener noreferrer" aria-label="Dexscreener" title="View on Dexscreener">
+      <img class="al-dex-icon" src="./textures/dexscreener.png" width="24" height="24" alt="" aria-hidden="true" decoding="async">
     </a>
 
     <a id="al-btn-github" class="al-btn" href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="AstroLife on GitHub">
@@ -48,7 +49,11 @@
         <li>KTX2 textures, HDR lighting, VAT roses</li>
         <li>Procedural terrain with live deformation</li>
       </ul>
-      <div class="token-line">$ASTROLIFE soon</div>
+      <div class="token-line">$ASTROLIFE</div>
+      <button type="button" class="contract-line" id="al-contract-copy" title="Copy contract address">
+        <span class="contract-label">CA</span>
+        <span class="contract-addr">${TOKEN_CONTRACT}</span>
+      </button>
       <a id="al-info-twitter" href="${TWITTER_URL}" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.37l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Follow ${TWITTER_HANDLE}
@@ -70,20 +75,37 @@
     backdrop.classList.add('open');
     panel.classList.add('open');
     panel.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('al-info-open');
   }
 
   function closeInfo() {
     backdrop.classList.remove('open');
     panel.classList.remove('open');
     panel.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('al-info-open');
   }
 
   btnInfo.addEventListener('click', openInfo);
   btnClose.addEventListener('click', closeInfo);
   backdrop.addEventListener('click', closeInfo);
-  document.getElementById('al-btn-dex').addEventListener('click', (e) => {
-    if (DEXSCREENER_URL === '#') e.preventDefault();
-  });
+
+  const btnContract = document.getElementById('al-contract-copy');
+  if (btnContract) {
+    btnContract.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(TOKEN_CONTRACT);
+        btnContract.classList.add('copied');
+        btnContract.setAttribute('title', 'Copied!');
+        window.setTimeout(() => {
+          btnContract.classList.remove('copied');
+          btnContract.setAttribute('title', 'Copy contract address');
+        }, 1600);
+      } catch {
+        window.prompt('Contract address:', TOKEN_CONTRACT);
+      }
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeInfo();
   });
@@ -131,6 +153,6 @@
     boot.hidden = false;
     boot.classList.add('error');
     boot.innerHTML =
-      'Game needs WebGPU.<br>Use <strong>Chrome</strong> or <strong>Edge</strong> (latest), then refresh.';
+      'Still loading…<br>Check your connection and refresh. If the screen stays black, try disabling browser extensions.';
   }, 70000);
 })();
