@@ -4,7 +4,9 @@
   const GITHUB_URL = 'https://github.com/rapkuryer/astrolife';
 
   // Paste new Solana contract here — UI updates automatically.
-  const TOKEN_CONTRACT = '';
+  const TOKEN_CONTRACT = 'HPRoFbybqpKq1v2F9FKUvqAABzCFYTWTBMuzD6bcpump';
+  const FEE_PLEDGE =
+    'All creator fees are reinvested into AstroLife — improving physics, graphics, and the game itself.';
   const HAS_CONTRACT = TOKEN_CONTRACT.trim().length > 0;
   const DEXSCREENER_URL = HAS_CONTRACT
     ? `https://dexscreener.com/solana/${TOKEN_CONTRACT.trim()}`
@@ -14,7 +16,11 @@
   ui.id = 'astrolife-ui';
   ui.innerHTML = `
     <div id="al-ticker">${HAS_CONTRACT ? '$ASTROLIFE' : '$ASTROLIFE soon'}</div>
-    <div id="al-contract-ticker" class="contract-ticker" ${HAS_CONTRACT ? '' : 'hidden'}>${TOKEN_CONTRACT}</div>
+    <div id="al-contract-wrap" class="contract-wrap" ${HAS_CONTRACT ? '' : 'hidden'}>
+      <p class="contract-fee-note">${FEE_PLEDGE}</p>
+      <div id="al-contract-ticker" class="contract-ticker">${TOKEN_CONTRACT}</div>
+      <button type="button" class="contract-copy-btn contract-copy-btn--ticker" id="al-contract-copy-ticker">Copy</button>
+    </div>
 
     <a id="al-btn-dex" class="al-btn${HAS_CONTRACT ? '' : ' is-disabled'}" href="${DEXSCREENER_URL}" ${HAS_CONTRACT ? 'target="_blank" rel="noopener noreferrer"' : ''} aria-label="Dexscreener" title="${HAS_CONTRACT ? 'View on Dexscreener' : 'Dexscreener — coming soon'}">
       <img class="al-dex-icon" src="./textures/dexscreener.png" width="24" height="24" alt="" aria-hidden="true" decoding="async">
@@ -57,6 +63,7 @@
       </ul>
       <div class="token-line">${HAS_CONTRACT ? '$ASTROLIFE' : '$ASTROLIFE soon'}</div>
       <div id="al-contract-block" class="contract-block" ${HAS_CONTRACT ? '' : 'hidden'}>
+        <p class="contract-fee-note">${FEE_PLEDGE}</p>
         <div class="contract-label-row">Contract address</div>
         <div class="contract-full" id="al-contract-addr">${TOKEN_CONTRACT}</div>
         <button type="button" class="contract-copy-btn" id="al-contract-copy">Copy</button>
@@ -100,22 +107,29 @@
     if (!HAS_CONTRACT) e.preventDefault();
   });
 
+  async function copyContract(btn) {
+    const value = TOKEN_CONTRACT.trim();
+    try {
+      await navigator.clipboard.writeText(value);
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      window.setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 1600);
+    } catch {
+      window.prompt('Contract address:', value);
+    }
+  }
+
   const btnContract = document.getElementById('al-contract-copy');
   if (btnContract && HAS_CONTRACT) {
-    btnContract.addEventListener('click', async () => {
-      const value = TOKEN_CONTRACT.trim();
-      try {
-        await navigator.clipboard.writeText(value);
-        btnContract.textContent = 'Copied!';
-        btnContract.classList.add('copied');
-        window.setTimeout(() => {
-          btnContract.textContent = 'Copy';
-          btnContract.classList.remove('copied');
-        }, 1600);
-      } catch {
-        window.prompt('Contract address:', value);
-      }
-    });
+    btnContract.addEventListener('click', () => copyContract(btnContract));
+  }
+
+  const btnContractTicker = document.getElementById('al-contract-copy-ticker');
+  if (btnContractTicker && HAS_CONTRACT) {
+    btnContractTicker.addEventListener('click', () => copyContract(btnContractTicker));
   }
 
   document.addEventListener('keydown', (e) => {
