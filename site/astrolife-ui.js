@@ -2,15 +2,21 @@
   const TWITTER_URL = 'https://x.com/astrolifegame';
   const TWITTER_HANDLE = '@astrolifegame';
   const GITHUB_URL = 'https://github.com/rapkuryer/astrolife';
-  const TOKEN_CONTRACT = '2ap3XHWhLAFVa1DiG9styAA9TXcQPmAKA4L6kiK6dory';
-  const DEXSCREENER_URL = `https://dexscreener.com/solana/${TOKEN_CONTRACT}`;
+
+  // Paste new Solana contract here — UI updates automatically.
+  const TOKEN_CONTRACT = '';
+  const HAS_CONTRACT = TOKEN_CONTRACT.trim().length > 0;
+  const DEXSCREENER_URL = HAS_CONTRACT
+    ? `https://dexscreener.com/solana/${TOKEN_CONTRACT.trim()}`
+    : '#';
 
   const ui = document.createElement('div');
   ui.id = 'astrolife-ui';
   ui.innerHTML = `
-    <div id="al-ticker">$ASTROLIFE · 2ap3…dory</div>
+    <div id="al-ticker">${HAS_CONTRACT ? '$ASTROLIFE' : '$ASTROLIFE soon'}</div>
+    <div id="al-contract-ticker" class="contract-ticker" ${HAS_CONTRACT ? '' : 'hidden'}>${TOKEN_CONTRACT}</div>
 
-    <a id="al-btn-dex" class="al-btn" href="${DEXSCREENER_URL}" target="_blank" rel="noopener noreferrer" aria-label="Dexscreener" title="View on Dexscreener">
+    <a id="al-btn-dex" class="al-btn${HAS_CONTRACT ? '' : ' is-disabled'}" href="${DEXSCREENER_URL}" ${HAS_CONTRACT ? 'target="_blank" rel="noopener noreferrer"' : ''} aria-label="Dexscreener" title="${HAS_CONTRACT ? 'View on Dexscreener' : 'Dexscreener — coming soon'}">
       <img class="al-dex-icon" src="./textures/dexscreener.png" width="24" height="24" alt="" aria-hidden="true" decoding="async">
     </a>
 
@@ -49,11 +55,12 @@
         <li>KTX2 textures, HDR lighting, VAT roses</li>
         <li>Procedural terrain with live deformation</li>
       </ul>
-      <div class="token-line">$ASTROLIFE</div>
-      <button type="button" class="contract-line" id="al-contract-copy" title="Copy contract address">
-        <span class="contract-label">CA</span>
-        <span class="contract-addr">${TOKEN_CONTRACT}</span>
-      </button>
+      <div class="token-line">${HAS_CONTRACT ? '$ASTROLIFE' : '$ASTROLIFE soon'}</div>
+      <div id="al-contract-block" class="contract-block" ${HAS_CONTRACT ? '' : 'hidden'}>
+        <div class="contract-label-row">Contract address</div>
+        <div class="contract-full" id="al-contract-addr">${TOKEN_CONTRACT}</div>
+        <button type="button" class="contract-copy-btn" id="al-contract-copy">Copy</button>
+      </div>
       <a id="al-info-twitter" href="${TWITTER_URL}" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.37l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Follow ${TWITTER_HANDLE}
@@ -89,19 +96,24 @@
   btnClose.addEventListener('click', closeInfo);
   backdrop.addEventListener('click', closeInfo);
 
+  document.getElementById('al-btn-dex').addEventListener('click', (e) => {
+    if (!HAS_CONTRACT) e.preventDefault();
+  });
+
   const btnContract = document.getElementById('al-contract-copy');
-  if (btnContract) {
+  if (btnContract && HAS_CONTRACT) {
     btnContract.addEventListener('click', async () => {
+      const value = TOKEN_CONTRACT.trim();
       try {
-        await navigator.clipboard.writeText(TOKEN_CONTRACT);
+        await navigator.clipboard.writeText(value);
+        btnContract.textContent = 'Copied!';
         btnContract.classList.add('copied');
-        btnContract.setAttribute('title', 'Copied!');
         window.setTimeout(() => {
+          btnContract.textContent = 'Copy';
           btnContract.classList.remove('copied');
-          btnContract.setAttribute('title', 'Copy contract address');
         }, 1600);
       } catch {
-        window.prompt('Contract address:', TOKEN_CONTRACT);
+        window.prompt('Contract address:', value);
       }
     });
   }
@@ -110,7 +122,6 @@
     if (e.key === 'Escape') closeInfo();
   });
 
-  // Loading hint — only if game stalls (assets are ~60 MB)
   const boot = document.createElement('div');
   boot.id = 'al-boot-hint';
   boot.hidden = true;
