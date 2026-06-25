@@ -8,7 +8,7 @@
   const ui = document.createElement('div');
   ui.id = 'astrolife-ui';
   ui.innerHTML = `
-    <div id="al-ticker">$ASTROLIFE</div>
+    <div id="al-ticker">$ASTROLIFE · 2ap3…dory</div>
 
     <a id="al-btn-dex" class="al-btn" href="${DEXSCREENER_URL}" target="_blank" rel="noopener noreferrer" aria-label="Dexscreener" title="View on Dexscreener">
       <img class="al-dex-icon" src="./textures/dexscreener.png" width="24" height="24" alt="" aria-hidden="true" decoding="async">
